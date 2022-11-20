@@ -1,18 +1,17 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
 
 
-class Header extends React.Component {
+class Sidebar extends React.Component {
     constructor(props) {  
           super(props);
           //this.state = {stan: "przykladowy stan" };  
         }
     render() {
       return  (
-        <>        
-        <Navbar />
-        </>    
+        <span className="sidebar">        
+        Jestem sidebarem.
+        </span>    
       );
     }
   }
-  export default Header;
+  export default Sidebar;

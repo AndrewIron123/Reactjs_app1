@@ -8,9 +8,9 @@ class Content extends React.Component {
         }
     render() {
       return  (
-        <>        
+        <span className="content">        
         Jestem contentem.
-        </>    
+        </span>   
       );
     }
   }
