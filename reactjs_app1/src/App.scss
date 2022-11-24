@@ -1,0 +1,55 @@
+@mixin bar__element--theme() {
+  color:dimgrey;
+  background: lightgray;
+}
+
+
+
+@mixin bar__element--hover_theme() {
+  color:white;
+  background: dimgrey;
+}
+
+.header {
+  min-height: 30px;
+  width: 100%;
+  background-color: lightgray;
+  border: 2px solid white;
+  overflow: auto;
+  .navbar {
+   width: 80%;
+      .navbar__link{
+        display: block;
+        margin: auto;
+        min-width: 10%;
+        float:left;
+        padding: 14px 16px;
+        text-align: center;
+        text-decoration: none;
+        @include bar__element--theme();
+        }
+      .navbar__link:hover{
+        @include bar__element--hover_theme();
+      }
+      
+   }
+}
+.sidebar {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  min-width: 10%;
+  background-color: lightgray;
+  height: 100%;
+  overflow: auto;
+  a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    @include bar__element--theme();
+    &:hover{
+      @include bar__element--hover_theme();
+    }
+  }
+ }
+

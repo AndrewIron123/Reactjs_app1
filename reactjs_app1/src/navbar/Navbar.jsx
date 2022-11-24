@@ -9,9 +9,9 @@ class Navbar extends React.Component {
     render() {
       return  (
         <div className="navbar">        
-          <a href="#NavbarElement1">NavbarElement1</a>
-          <a href="#NavbarElement2">NavbarElement2</a>
-          <a href="#NavbarElement3">NavbarElement3</a>
+          <a href="#NavbarElement1" className="navbar__link">NavbarElement1</a>
+          <a href="#NavbarElement2" className="navbar__link">NavbarElement2</a>
+          <a href="#NavbarElement3" className="navbar__link">NavbarElement3</a>
         </div>    
       );
     }

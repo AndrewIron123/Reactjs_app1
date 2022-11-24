@@ -9,9 +9,9 @@ class Header extends React.Component {
         }
     render() {
       return  (
-        <>        
-        <Navbar />
-        </>    
+        <div className="header">        
+          <Navbar />
+        </div>    
       );
     }
   }
