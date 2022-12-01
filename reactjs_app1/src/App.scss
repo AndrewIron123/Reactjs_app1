@@ -17,13 +17,15 @@
   border: 2px solid white;
   overflow: auto;
   .navbar {
-   width: 80%;
+   width: 100%;
+   display: fixed;
+   top:0;
       .navbar__link{
         display: block;
-        margin: auto;
         min-width: 10%;
+        overflow: hidden;
         float:left;
-        padding: 14px 16px;
+        padding: 10px 12px;
         text-align: center;
         text-decoration: none;
         @include bar__element--theme();
