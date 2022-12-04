@@ -10,44 +10,43 @@
   background: dimgrey;
 }
 
-.header {
+.navbar {
   min-height: 30px;
   width: 100%;
   background-color: lightgray;
   border: 2px solid white;
   overflow: auto;
-  .navbar {
-   width: 100%;
-   display: fixed;
-   top:0;
-      .navbar__link{
-        display: block;
-        min-width: 10%;
-        overflow: hidden;
-        float:left;
-        padding: 10px 12px;
-        text-align: center;
-        text-decoration: none;
-        @include bar__element--theme();
-        }
-      .navbar__link:hover{
-        @include bar__element--hover_theme();
-      }
+  position: fixed;
+  top:0;
+  .navbar__link{
+    display: block;
+    width: 10vw;
+    overflow: hidden;
+    float:left;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    @include bar__element--theme();
+  }
+  .navbar__link:hover{
+    @include bar__element--hover_theme();
+  }
       
-   }
 }
+
 .sidebar {
-  margin: 0;
+  margin: 44px 0 0 0;
   padding: 0;
   position: fixed;
   min-width: 10%;
   background-color: lightgray;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
   a {
     display: block;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
+    text-align: center;
     @include bar__element--theme();
     &:hover{
       @include bar__element--hover_theme();

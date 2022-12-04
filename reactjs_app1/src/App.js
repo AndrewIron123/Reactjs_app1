@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.scss';
-import Header from './header/Header'
 import Content from './content/Content';
 import Footer from './footer/Footer';
 import Sidebar from './sidebar/Sidebar';
+import Navbar from './navbar/Navbar';
 
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Navbar />
       <Sidebar />
       <Content />
       <Footer />
