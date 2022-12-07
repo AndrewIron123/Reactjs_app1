@@ -4,16 +4,26 @@ import Content from './content/Content';
 import Footer from './footer/Footer';
 import Sidebar from './sidebar/Sidebar';
 import Navbar from './navbar/Navbar';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from './layout/Layout';
+import HomePage from './HomePage/HomePage';
+import React from 'react';
 
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Sidebar />
-      <Content />
-      <Footer />
-    </div>
+    <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />}>
+              <Route index element={<HomePage />} />
+              {/* <Route path="make-an-appointment" element={<CalendarPage />} />
+              <Route path="favourite" element={<FavouritePage />} />
+              <Route path="*" element={<ErrorPage />} /> */}
+            </Route>
+          </Routes>
+        </Layout>
+    </BrowserRouter>
   );
 }
 
