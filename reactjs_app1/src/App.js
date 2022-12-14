@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from './layout/Layout';
 import HomePage from './HomePage/HomePage';
 import React from 'react';
+import CalendarPage from './CalendarPage/CalendarPage';
 
 
 function App() {
@@ -15,12 +16,12 @@ function App() {
     <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<HomePage />}>
-              <Route index element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="calendar" element={<CalendarPage />} />
+
               {/* <Route path="make-an-appointment" element={<CalendarPage />} />
               <Route path="favourite" element={<FavouritePage />} />
               <Route path="*" element={<ErrorPage />} /> */}
-            </Route>
           </Routes>
         </Layout>
     </BrowserRouter>

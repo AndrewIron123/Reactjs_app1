@@ -8,7 +8,7 @@ class HomePage extends React.Component {
         }
     render() {
       return  (
-        <span className="homepage">        
+        <span className="page homepage">        
          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum tortor sed enim suscipit, a luctus dui dignissim. Mauris ac tortor porttitor, luctus ex laoreet, venenatis odio. Integer consequat ipsum massa, et sodales justo ultricies a. Pellentesque auctor arcu diam, sed vulputate lectus euismod porttitor. Quisque id efficitur risus. Maecenas bibendum eu metus quis tempus. Vestibulum in mi mauris. In luctus metus a placerat mollis. Donec viverra dolor in mauris consequat semper. Vivamus in vulputate elit. Mauris et blandit risus. Integer suscipit, augue ut viverra aliquet, lorem quam scelerisque nibh, non varius tortor mauris et turpis. Nulla in mattis enim, in maximus eros. Nulla et facilisis augue, id viverra metus.
 
 Maecenas vitae tortor et felis ullamcorper iaculis. Sed aliquam mollis arcu id fringilla. Vivamus ultrices, arcu eu tempor fringilla, nisl purus maximus nisl, et convallis eros nulla ut mi. Suspendisse ac fermentum nibh. Mauris finibus dapibus quam ut congue. Sed commodo est sed mauris placerat tincidunt id quis ante. Vestibulum consequat nibh non porttitor facilisis.

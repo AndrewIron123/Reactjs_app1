@@ -10,7 +10,7 @@
   background: dimgrey;
 }
 
-.App {
+#root {
   background-image: linear-gradient(to bottom right,white,gray);
 }
 .navbar {
@@ -58,10 +58,23 @@
     }
   }
  }
-.homepage {
+.page {
   display: inline-block;
   margin: 41px 0 0 191px;
   padding: 25px 100px;
   text-align: justify;
+  min-height: 100vh;
+}
+.calendarpage {
+  &__form {
+    label {
+      display: block;
+    }
+    textarea {
+      display: block;
+
+    }
+  }
+
 }
 
