@@ -9,23 +9,29 @@ function Article(props) {
     // useEffect(() => {    
         
     // });
+    console.log(props);
 
     return (
-        <span className={"page "+props.myclass}>
-            {props.content}
-        </span>
+      <>
+        <div className={"page "+props.myclass} dangerouslySetInnerHTML={{__html: props.myHtml}} />
+      </>
     );
   }
 
   Article.propTypes = {
-    content: PropTypes.object,
-    myclass: PropTypes.string
-
+    myHtml: PropTypes.string,
+    myTitle: PropTypes.string,
+    myAuthor: PropTypes.string,
+    myDate: PropTypes.string,
+    myClass: PropTypes.string
   }
 
   Article.defaultProps = {
-    content: {},
-    myclass: ""
+    myHtml: "",
+    myTitle: "",
+    myAuthor: "",
+    myDate: "",
+    myClass: ""
   }
 
   export default Article;
