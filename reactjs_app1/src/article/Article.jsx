@@ -13,7 +13,7 @@ function Article(props) {
 
     return (
       <>
-        <div className={"page "+props.myclass} dangerouslySetInnerHTML={{__html: props.myHtml}} />
+        <div className={"page" + (props.myClass ? (" "+ props.myClass) : "")} dangerouslySetInnerHTML={{__html: props.myHtml}} />
       </>
     );
   }

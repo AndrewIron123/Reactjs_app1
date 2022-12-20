@@ -63,7 +63,15 @@
   margin: 41px 0 0 191px;
   padding: 25px 100px;
   text-align: justify;
-  min-height: 100vh;
+  min-height: 95vh;
+}
+.footer {
+  display: block;
+  margin: 41px 0 0 191px;
+  padding: 25px 100px;
+  text-align: right;
+  min-height: 5vh;
+  opacity: 0.4;
 }
 .calendarpage {
   &__form {
