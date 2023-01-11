@@ -10,6 +10,7 @@ function HomePage() {
   });
  
   useEffect(() => {
+    console.log(process.env.REACT_APP_API_URL_ARTICLES);
     const JSONFromAPI = '{"title":"simple title","html":"<div>simple text</div>", "author":"simple author", "date":"2022-12-20"}';
     const JSONAsJsObject = JSON.parse(JSONFromAPI);
     setData(JSONAsJsObject);

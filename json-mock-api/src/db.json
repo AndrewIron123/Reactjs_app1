@@ -1,24 +1,11 @@
 {
-    "employees": [
-        {
-            "id": 1,
-            "first_name": "a",
-            "last_name": "b"
-        },
-        {
-            "id": 2,
-            "first_name": "c",
-            "last_name": "d"
-        },
-        {
-            "id": 3,
-            "first_name": "e",
-            "last_name": "f"
-        },
-        {
-            "id": 4,
-            "first_name": "g",
-            "last_name": "h"
-        }
+    "categories": [
+        { "id": 1, "name": "name1" }
+    ],
+    "articles": [
+      { "id": 1, "title": "title1", "author": "author1", "date": "2022-12-20", "html": "<div>Simple html</div>", "categoryId":"1" }
+    ],
+    "meetings": [
+      { "id": 1, "firstname": "", "lastname": "", "email":"", "message":"", "date":"2023-01-11" }
     ]
 }
