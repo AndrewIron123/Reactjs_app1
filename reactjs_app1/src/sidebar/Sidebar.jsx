@@ -25,7 +25,7 @@ function Sidebar() {
   if (error) {
     return (
       <span className="sidebar">
-        <div>error.message</div>
+        <div>{error.message}</div>
       </span>
     );
   } else if (!isDataLoaded) {
