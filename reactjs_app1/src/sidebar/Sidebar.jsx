@@ -1,22 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+function Sidebar() {
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
 
 
-class Sidebar extends React.Component {
-    constructor(props) {  
-          super(props);
-          //this.state = {stan: "przykladowy stan" };  
+
+  useEffect(() => {
+    fetch(process.env.REACT_APP_API_URL_CATEGORIES)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsDataLoaded(true);
+          setData(result);
+          console.log(result);
+        },
+        (error) => {
+          setIsDataLoaded(true);
+          setError(error);
         }
-    render() {
-      return  (
-        <span className="sidebar">        
-         <a href="#SidebarElement1">SidebarElement1</a>
-         <a href="#SidebarElement2">SidebarElement2</a>
-         <a href="#SidebarElement3">SidebarElement3</a>
-         <a href="#SidebarElement4">SidebarElement4</a>
-         <a href="#SidebarElement5">SidebarElement5</a>
-         <a href="#SidebarElement6">SidebarElement6</a>
-        </span>    
-      );
-    }
+      )
+  }, []);
+
+  if (error) {
+    return (
+      <span className="sidebar">
+        <div>error.message</div>
+      </span>
+    );
+  } else if (!isDataLoaded) {
+    return (
+      <span className="sidebar">
+        <div>Loading...</div>
+      </span>
+    );
+  } else {
+    return (
+      <span className="sidebar">
+        {
+          data.map((arrElement) => <div key={arrElement.id}>{arrElement.name}</div>)
+        }
+      </span>
+    );
   }
-  export default Sidebar;
+}
+
+export default Sidebar;

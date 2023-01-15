@@ -1,11 +1,328 @@
 {
-    "categories": [
-        { "id": 1, "name": "name1" }
-    ],
-    "articles": [
-      { "id": 1, "title": "title1", "author": "author1", "date": "2022-12-20", "html": "<div>Simple html</div>", "categoryId":"1" }
-    ],
-    "meetings": [
-      { "id": 1, "firstname": "", "lastname": "", "email":"", "message":"", "date":"2023-01-11" }
-    ]
+  "categories": [
+    {
+      "id": 1,
+      "name": "category1"
+    },
+    {
+      "id": 2,
+      "name": "category2"
+    },
+    {
+      "id": 3,
+      "name": "category3"
+    },
+    {
+      "id": 4,
+      "name": "category4"
+    },
+    {
+      "id": 5,
+      "name": "category5"
+    },
+    {
+      "id": 6,
+      "name": "category6"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "1"
+    },
+    {
+      "id": 2,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "1"
+    },
+    {
+      "id": 3,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "1"
+    },
+    {
+      "id": 4,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "1"
+    },
+    {
+      "id": 5,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "1"
+    },
+    {
+      "id": 6,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "1"
+    },
+    {
+      "id": 7,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "2"
+    },
+    {
+      "id": 8,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "2"
+    },
+    {
+      "id": 9,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "2"
+    },
+    {
+      "id": 10,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "2"
+    },
+    {
+      "id": 11,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "2"
+    },
+    {
+      "id": 12,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "2"
+    },
+    {
+      "id": 13,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "3"
+    },
+    {
+      "id": 14,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "3"
+    },
+    {
+      "id": 15,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "3"
+    },
+    {
+      "id": 16,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "3"
+    },
+    {
+      "id": 17,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "3"
+    },
+    {
+      "id": 18,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "3"
+    },
+    {
+      "id": 19,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "4"
+    },
+    {
+      "id": 20,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "4"
+    },
+    {
+      "id": 21,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "4"
+    },
+    {
+      "id": 22,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "4"
+    },
+    {
+      "id": 23,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "4"
+    },
+    {
+      "id": 24,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "4"
+    },
+    {
+      "id": 25,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "5"
+    },
+    {
+      "id": 26,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "5"
+    },
+    {
+      "id": 27,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "5"
+    },
+    {
+      "id": 28,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "5"
+    },
+    {
+      "id": 29,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "5"
+    },
+    {
+      "id": 30,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "5"
+    },
+    {
+      "id": 31,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "6"
+    },
+    {
+      "id": 32,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "6"
+    },
+    {
+      "id": 33,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "6"
+    },
+    {
+      "id": 34,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "6"
+    },
+    {
+      "id": 35,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "6"
+    },
+    {
+      "id": 36,
+      "title": "title1",
+      "author": "author1",
+      "date": "2022-12-20",
+      "html": "<div>Simple html</div>",
+      "categoryId": "6"
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "message": "",
+      "date": "2023-01-11"
+    }
+  ]
 }
