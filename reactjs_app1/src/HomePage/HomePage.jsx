@@ -10,6 +10,7 @@ function HomePage() {
     author: "",
     date: ""
   });
+  const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\""
 
 
   useEffect(() => {
@@ -29,7 +30,8 @@ function HomePage() {
 
 
   if (error) {
-    return <Article myHtml={`<div>${error.message}</div>`} myTitle={data.title} myAuthor={data.author} myDate={data.date} />;
+    // return <Article myHtml={`<div>${error.message}</div>`} myTitle={data.title} myAuthor={data.author} myDate={data.date} />;
+    return <Article myHtml={`<div style="font-weight: bold;color: red;">${errorMessage}</div>`} myTitle={data.title} myAuthor={data.author} myDate={data.date} />;
   } else if (!isDataLoaded) {
     return <Article myHtml={"<div>Loading...</div>"} myTitle={data.title} myAuthor={data.author} myDate={data.date} />;
   } else {
