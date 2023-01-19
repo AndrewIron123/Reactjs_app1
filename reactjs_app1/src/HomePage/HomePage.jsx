@@ -10,7 +10,7 @@ function HomePage() {
     author: "",
     date: ""
   });
-  const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\""
+  const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\" - and then please refresh the page";
 
 
   useEffect(() => {
