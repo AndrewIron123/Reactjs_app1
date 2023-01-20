@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 function Sidebar() {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [error, setError] = useState(null);
@@ -38,7 +39,17 @@ function Sidebar() {
     return (
       <span className="sidebar">
         {
-          data.map((arrElement) => <div key={arrElement.id}>{arrElement.name}</div>)
+          data.map((arrElement) =>
+            <div key={arrElement.id} className="sidebar--element">
+              <div className="sidebar--button">{arrElement.name}</div>
+              <div className="sidebar--dropdown__content">
+                <Link to="/" className="sidebar--dropdown__link">Home</Link>    
+                <Link to="calendar" className="sidebar--dropdown__link">Make an appointment</Link>
+                <Link to="calendar" className="sidebar--dropdown__link">Make an appointment</Link>
+                <Link to="calendar" className="sidebar--dropdown__link">Make an appointment</Link>
+              </div>
+            </div>
+            )
         }
       </span>
     );

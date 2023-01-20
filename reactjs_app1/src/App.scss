@@ -39,23 +39,47 @@
 }
 
 .sidebar {
-  opacity: 0.7;
   padding: 0;
   position: fixed;
   top: 42px;
   width: 191px;
   background-color: lightgray;
   height: 100vh;
-  overflow-y: auto;
-  div {
+  &--element {
+    position: relative;
     display: block;
-    padding: 10px 12px;
+  }
+  &--button {
     text-decoration: none;
     text-align: center;
+    padding: 10px 12px;
     @include bar__element--theme();
     &:hover{
       @include bar__element--hover_theme();
     }
+  }
+  &--dropdown__content {
+    display: none;
+    position: absolute;
+    // background-color: lightgray;
+    background-color: lightgray;
+    min-width: 191px;
+    z-index: 1;
+    left: 191px;
+    top: 0;
+  }
+  &--dropdown__link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 12px;
+    @include bar__element--theme();
+    &:hover{
+      @include bar__element--hover_theme();
+    }
+  }
+  &--element:hover &--dropdown__content {
+    display: block;
   }
  }
 .page {
