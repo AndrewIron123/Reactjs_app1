@@ -7,6 +7,7 @@ function Article(props) {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState({
+    id: 1,
     title: "",
     html: "",
     author: "",
@@ -15,9 +16,7 @@ function Article(props) {
   const params = useParams();
   const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\" - and then please refresh the page";
 
-
-  useEffect(() => {
-    console.log(params);
+  function handleFetchArticle() {
     if (params && params.articleId) {
       fetch(`${process.env.REACT_APP_API_URL_ARTICLES}/${params.articleId}`)
         .then(res => res.json())
@@ -29,14 +28,19 @@ function Article(props) {
           (error) => {
             setIsDataLoaded(true);
             setError(error);
+            alert(`Error - FetchArticle - ${errorMessage}`);
           }
         )
     }
-  }, []);
+  }
+
+  useEffect(() => {
+    handleFetchArticle();
+  }, [params]);
 
 
   if (error) {
-    return <div className="page" style="font-weight: bold;color: red;">{errorMessage}</div>;
+    return <div className="page">{errorMessage}</div>;
   } else if (!isDataLoaded) {
     return <div className="page">Loading...</div>;
   } else {
@@ -59,20 +63,5 @@ function Article(props) {
   }
 }
 
-Article.propTypes = {
-  myHtml: PropTypes.string,
-  myTitle: PropTypes.string,
-  myAuthor: PropTypes.string,
-  myDate: PropTypes.string,
-  myClass: PropTypes.string
-}
-
-Article.defaultProps = {
-  myHtml: "",
-  myTitle: "",
-  myAuthor: "",
-  myDate: "",
-  myClass: ""
-}
 
 export default Article;

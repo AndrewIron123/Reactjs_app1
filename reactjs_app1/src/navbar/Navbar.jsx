@@ -11,7 +11,7 @@ class Navbar extends React.Component {
       return  (
         <div className="navbar">    
           <Link to="/" className="navbar__link">Home</Link>    
-          <Link to="calendar" className="navbar__link">Make an appointment</Link>
+          <Link to="/calendar" className="navbar__link">Make an appointment</Link>
           {/* <a href="#NavbarElement1" className="navbar__link">NavbarElement1</a>
           <a href="#NavbarElement2" className="navbar__link">NavbarElement2</a>
           <a href="#NavbarElement3" className="navbar__link">NavbarElement3</a> */}

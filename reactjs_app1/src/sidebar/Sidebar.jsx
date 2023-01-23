@@ -9,6 +9,9 @@ function Sidebar() {
   const [articlesError, setArticlesError] = useState(null);
   const [articles, setArticles] = useState([]);
 
+  const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\" - and then please refresh the page";
+
+
   function handleFetchCategories() {
     fetch(process.env.REACT_APP_API_URL_CATEGORIES)
       .then(res => res.json())
@@ -20,6 +23,7 @@ function Sidebar() {
         (error) => {
           setIsCategoriesLoaded(true);
           setCategoriesError(error);
+          alert(`Error - FetchCategories - ${errorMessage}`);
         }
       )
   }
@@ -35,6 +39,7 @@ function Sidebar() {
         (error) => {
           setIsArticlesLoaded(true);
           setArticlesError(error);
+          alert(`Error - FetchArticles - ${errorMessage}`);
         }
       )
   }
@@ -48,7 +53,7 @@ function Sidebar() {
   if (categoriesError || articlesError) {
     return (
       <span className="sidebar">
-        <div>No API</div>
+        <div>{errorMessage}</div>
       </span>
     );
   } else if (!isCategoriesLoaded || !isCategoriesLoaded) {
@@ -61,19 +66,21 @@ function Sidebar() {
     return (
       <span className="sidebar">
         {
-          categories.map((arrElement) => {
+          categories.map((categoryElement) => {
             return (
-              <div key={arrElement.id} className="sidebar--element">
-                <div className="sidebar--button">{arrElement.name}</div>
+              <div key={categoryElement.id} className="sidebar--element">
+                <div className="sidebar--button">{categoryElement.name}</div>
                 <div className="sidebar--dropdown__content">
-                  <Link to="/" className="sidebar--dropdown__link">Home</Link>
-                  <Link to="calendar" className="sidebar--dropdown__link">Make an appointment</Link>
-                  <Link to="calendar" className="sidebar--dropdown__link">Make an appointment</Link>
-                  <Link to="calendar" className="sidebar--dropdown__link">Make an appointment</Link>
+                  {articles.map((articlesElement) => {
+                    if (categoryElement.id === articlesElement.categoryId) {
+                      return (
+                        <Link key={articlesElement.id} to={`/article/${articlesElement.id}`} className="sidebar--dropdown__link">{articlesElement.title}</Link>
+                      );
+                    }
+                  })}
                 </div>
               </div>
             )
-
           })
         }
       </span>

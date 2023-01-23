@@ -8,6 +8,7 @@
 @mixin bar__element--hover_theme() {
   color:white;
   background: dimgrey;
+  transition: 0.4s;
 }
 
 #root {
