@@ -32,11 +32,15 @@
     text-align: center;
     text-decoration: none;
     @include bar__element--theme();
-  }
-  .navbar__link:hover{
-    @include bar__element--hover_theme();
-  }
-      
+    &:hover{
+      @include bar__element--hover_theme();
+    }
+    &--active{
+      color:blue;
+      background: dimgrey;
+      transition: 0.4s;
+    }
+  }   
 }
 
 .sidebar {
@@ -77,6 +81,11 @@
     @include bar__element--theme();
     &:hover{
       @include bar__element--hover_theme();
+    }
+    &--active{
+      color:blue;
+      background: dimgrey;
+      transition: 0.4s;
     }
   }
   &--element:hover &--dropdown__content {

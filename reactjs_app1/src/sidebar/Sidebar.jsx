@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 function Sidebar() {
   const [isCategoriesLoaded, setIsCategoriesLoaded] = useState(false);
   const [categoriesError, setCategoriesError] = useState(null);
@@ -10,7 +10,8 @@ function Sidebar() {
   const [articles, setArticles] = useState([]);
 
   const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\" - and then please refresh the page";
-
+  const articleRefs = useRef({});
+  const location = useLocation();
 
   function handleFetchCategories() {
     fetch(process.env.REACT_APP_API_URL_CATEGORIES)
@@ -50,6 +51,17 @@ function Sidebar() {
     handleFetchArticles();
   }, []);
 
+  useEffect(() => {
+    console.log(location);
+    const locationPathNameAsArr = location.pathname.split("/");
+    const id = locationPathNameAsArr[2];
+    console.log(articleRefs.current[id]);
+    if (articleRefs.current[id]) {
+      articleRefs.current[id]?.classList.add('sidebar--dropdown__link--active');
+    }
+  });
+
+
   if (categoriesError || articlesError) {
     return (
       <span className="sidebar">
@@ -74,7 +86,9 @@ function Sidebar() {
                   {articles.map((articlesElement) => {
                     if (categoryElement.id === articlesElement.categoryId) {
                       return (
-                        <Link key={articlesElement.id} to={`/article/${articlesElement.id}`} className="sidebar--dropdown__link">{articlesElement.title}</Link>
+                        <Link key={articlesElement.id} to={`/article/${articlesElement.id}`} className="sidebar--dropdown__link" ref={(el) => articleRefs.current[articlesElement.id] = el}>
+                          {articlesElement.title}
+                        </Link>
                       );
                     }
                   })}

@@ -36,7 +36,7 @@ function Article(props) {
 
   useEffect(() => {
     handleFetchArticle();
-  }, [params]);
+  }, [params.articleId]);
 
 
   if (error) {
