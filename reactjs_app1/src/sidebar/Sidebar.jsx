@@ -51,14 +51,19 @@ function Sidebar() {
     handleFetchArticles();
   }, []);
 
+
   useEffect(() => {
-    console.log(location);
+    // Marking and unmarking an article depending on the url
     const locationPathNameAsArr = location.pathname.split("/");
     const id = locationPathNameAsArr[2];
-    console.log(articleRefs.current[id]);
     if (articleRefs.current[id]) {
       articleRefs.current[id]?.classList.add('sidebar--dropdown__link--active');
     }
+    return function handleUnmarkArticle() {
+      if (articleRefs.current[id]) {
+        articleRefs.current[id]?.classList.remove('sidebar--dropdown__link--active');
+      }
+    };
   });
 
 

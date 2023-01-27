@@ -28,6 +28,7 @@ function Navbar() {
   }
 
   useEffect(() => {
+    // Marking and unmarking an Navbar buttons depending on the url
     handleActiveBtn();
   },[location.pathname]);
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 function Footer(props) {
+    // this component is not used at the moment
     
     // const [simpleState, setSimpleState] = useState("Stan początkowy");
 
