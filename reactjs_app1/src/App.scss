@@ -50,11 +50,11 @@
   width: 191px;
   background-color: lightgray;
   height: 100vh;
-  &--element {
+  &__element {
     position: relative;
     display: block;
   }
-  &--button {
+  &__button {
     text-decoration: none;
     text-align: center;
     padding: 10px 12px;
@@ -62,8 +62,11 @@
     &:hover{
       @include bar__element--hover_theme();
     }
+    &--hover{
+      @include bar__element--hover_theme();
+    }
   }
-  &--dropdown__content {
+  &__dropdown-content {
     display: none;
     position: absolute;
     // background-color: lightgray;
@@ -73,7 +76,7 @@
     left: 191px;
     top: 0;
   }
-  &--dropdown__link {
+  &__dropdown-link {
     display: block;
     text-decoration: none;
     text-align: center;
@@ -88,7 +91,7 @@
       transition: 0.4s;
     }
   }
-  &--element:hover &--dropdown__content {
+  &__element:hover &__dropdown-content {
     display: block;
   }
  }

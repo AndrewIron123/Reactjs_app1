@@ -11,6 +11,7 @@ function Sidebar() {
 
   const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\" - and then please refresh the page";
   const articleRefs = useRef({});
+  const categoryRefs = useRef({});
   const location = useLocation();
 
   function handleFetchCategories() {
@@ -45,6 +46,14 @@ function Sidebar() {
       )
   }
 
+  function handleArticleDropDownOnMouseEnter(id) {
+    categoryRefs.current[id]?.classList.add('sidebar__button--hover');
+  }
+
+  function handleArticleDropDownOnMouseLeave(id) {
+    categoryRefs.current[id]?.classList.remove('sidebar__button--hover');
+  }
+
 
   useEffect(() => {
     handleFetchCategories();
@@ -57,11 +66,11 @@ function Sidebar() {
     const locationPathNameAsArr = location.pathname.split("/");
     const id = locationPathNameAsArr[2];
     if (articleRefs.current[id]) {
-      articleRefs.current[id]?.classList.add('sidebar--dropdown__link--active');
+      articleRefs.current[id]?.classList.add('sidebar__dropdown-link--active');
     }
     return function handleUnmarkArticle() {
       if (articleRefs.current[id]) {
-        articleRefs.current[id]?.classList.remove('sidebar--dropdown__link--active');
+        articleRefs.current[id]?.classList.remove('sidebar__dropdown-link--active');
       }
     };
   });
@@ -85,13 +94,13 @@ function Sidebar() {
         {
           categories.map((categoryElement) => {
             return (
-              <div key={categoryElement.id} className="sidebar--element">
-                <div className="sidebar--button">{categoryElement.name}</div>
-                <div className="sidebar--dropdown__content">
+              <div key={categoryElement.id} className="sidebar__element">
+                <div className="sidebar__button" ref={(el) => categoryRefs.current[categoryElement.id] = el}>{categoryElement.name}</div>
+                <div className="sidebar__dropdown-content" onMouseEnter={()=>handleArticleDropDownOnMouseEnter(categoryElement.id)} onMouseLeave={()=> handleArticleDropDownOnMouseLeave(categoryElement.id)}>
                   {articles.map((articlesElement) => {
                     if (categoryElement.id === articlesElement.categoryId) {
                       return (
-                        <Link key={articlesElement.id} to={`/article/${articlesElement.id}`} className="sidebar--dropdown__link" ref={(el) => articleRefs.current[articlesElement.id] = el}>
+                        <Link key={articlesElement.id} to={`/article/${articlesElement.id}`} className="sidebar__dropdown-link" ref={(el) => articleRefs.current[articlesElement.id] = el}>
                           {articlesElement.title}
                         </Link>
                       );
