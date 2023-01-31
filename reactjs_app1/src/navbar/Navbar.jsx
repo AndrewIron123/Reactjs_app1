@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ModeSwitch from '../features/modeSwitch/ModeSwitch';
 
 function Navbar() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function Navbar() {
     <div className="navbar">
       <Link to="/" ref={homeBtn} className="navbar__link">Home</Link>
       <Link to="/calendar" ref={calendarBtn} className="navbar__link">Make an appointment</Link>
+      <ModeSwitch />
     </div>
   );
 }

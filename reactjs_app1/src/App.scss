@@ -1,19 +1,20 @@
 @mixin bar__element--theme() {
-  color:dimgrey;
+  color: dimgrey;
   background: lightgray;
 }
 
 
 
 @mixin bar__element--hover_theme() {
-  color:white;
+  color: white;
   background: dimgrey;
   transition: 0.4s;
 }
 
 #root {
-  background-image: linear-gradient(to bottom right,white,gray);
+  background-image: linear-gradient(to bottom right, white, gray);
 }
+
 .navbar {
   opacity: 0.8;
   height: 41px;
@@ -21,26 +22,106 @@
   background-color: lightgray;
   overflow: auto;
   position: fixed;
-  top:0;
-  left:191px;
-  .navbar__link{
+  top: 0;
+  left: 191px;
+
+  &__link {
     display: block;
     width: 166px;
-    overflow:hidden;
-    float:left;
+    overflow: hidden;
+    float: left;
     padding: 10px 12px;
     text-align: center;
     text-decoration: none;
     @include bar__element--theme();
-    &:hover{
+
+    &:hover {
       @include bar__element--hover_theme();
     }
-    &--active{
-      color:blue;
+
+    &--active {
+      color: blue;
       background: dimgrey;
       transition: 0.4s;
     }
-  }   
+  }
+
+  .mode-switch {
+    display: table;
+    float: left;
+    height: 100%;
+
+    .switch-label {
+      display: table-cell; 
+      vertical-align: middle; 
+      text-align: center;
+      width: 180px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .switch-main {
+      display: table-cell; 
+      vertical-align: middle; 
+      text-align: center;
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+
+        & input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+  }
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 }
 
 .sidebar {
@@ -50,22 +131,27 @@
   width: 191px;
   background-color: lightgray;
   height: 100vh;
+
   &__element {
     position: relative;
     display: block;
   }
+
   &__button {
     text-decoration: none;
     text-align: center;
     padding: 10px 12px;
     @include bar__element--theme();
-    &:hover{
+
+    &:hover {
       @include bar__element--hover_theme();
     }
-    &--hover{
+
+    &--hover {
       @include bar__element--hover_theme();
     }
   }
+
   &__dropdown-content {
     display: none;
     position: absolute;
@@ -76,25 +162,30 @@
     left: 191px;
     top: 0;
   }
+
   &__dropdown-link {
     display: block;
     text-decoration: none;
     text-align: center;
     padding: 10px 12px;
     @include bar__element--theme();
-    &:hover{
+
+    &:hover {
       @include bar__element--hover_theme();
     }
-    &--active{
-      color:blue;
+
+    &--active {
+      color: blue;
       background: dimgrey;
       transition: 0.4s;
     }
   }
+
   &__element:hover &__dropdown-content {
     display: block;
   }
- }
+}
+
 .page {
   display: inline-block;
   margin: 41px 0 0 191px;
@@ -102,21 +193,24 @@
   text-align: justify;
   min-height: 90vh;
 }
+
 .article {
   display: inline-block;
   margin: 41px 0 0 191px;
   padding: 25px 100px;
   text-align: justify;
   min-height: 90vh;
-    &__footer{
-      display: block;
-      margin: 41px 0 0 191px;
-      padding: 25px 100px;
-      text-align: right;
-      min-height: 5vh;
-      opacity: 0.4;
-    }
+
+  &__footer {
+    display: block;
+    margin: 41px 0 0 191px;
+    padding: 25px 100px;
+    text-align: right;
+    min-height: 5vh;
+    opacity: 0.4;
+  }
 }
+
 .footer {
   display: block;
   margin: 41px 0 0 191px;
@@ -125,29 +219,34 @@
   min-height: 5vh;
   opacity: 0.4;
 }
+
 .calendarpage {
   &__form {
     label {
       display: block;
     }
+
     textarea {
       display: block;
 
     }
-    &_fn_input{
+
+    &_fn_input {
       margin-left: 10px;
     }
-    &_ln_input{
+
+    &_ln_input {
       margin-left: 12px;
     }
-    &_em_input{
+
+    &_em_input {
       margin-left: 39px;
     }
-    &_date_input{
+
+    &_date_input {
       margin-left: 10px;
     }
 
   }
 
 }
-
