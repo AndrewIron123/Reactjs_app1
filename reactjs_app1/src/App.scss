@@ -11,14 +11,30 @@
   transition: 0.4s;
 }
 
+@mixin bar__element--theme--dark() {
+  color: white;
+  background: darkslategrey;
+}
+
+
+
+@mixin bar__element--hover_theme--dark() {
+  color: white;
+  background: rgb(67, 119, 119);
+  transition: 0.4s;
+}
+
 #root {
   background-image: linear-gradient(to bottom right, white, gray);
+  &.dark {
+    background-image: linear-gradient(to bottom right, gray, black);
+  }
 }
 
 .navbar {
   opacity: 0.8;
   height: 41px;
-  width: 100%;
+  width: calc(100% - 191px);
   background-color: lightgray;
   overflow: auto;
   position: fixed;
@@ -48,22 +64,27 @@
 
   .mode-switch {
     display: table;
-    float: left;
+    float: right;
     height: 100%;
+    margin: 0 10px 0 0;
 
     .switch-label {
-      display: table-cell; 
-      vertical-align: middle; 
+      display: table-cell;
+      vertical-align: middle;
       text-align: center;
       width: 180px;
       overflow: hidden;
       text-align: center;
+      &.dark{
+        color:white;
+      }
     }
 
     .switch-main {
-      display: table-cell; 
-      vertical-align: middle; 
+      display: table-cell;
+      vertical-align: middle;
       text-align: center;
+
       .switch {
         position: relative;
         display: inline-block;
@@ -117,11 +138,24 @@
     }
   }
 
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  &.dark {
+    background-color: darkslategray;
+
+    .navbar__link {
+      @include bar__element--theme--dark();
+
+      &:hover {
+        @include bar__element--hover_theme--dark();
+      }
+
+      &--active {
+        color: rgb(7, 236, 7);
+        background: rgb(67, 119, 119);
+        transition: 0.4s;
+      }
+    }
   }
+
 }
 
 .sidebar {
@@ -184,6 +218,39 @@
   &__element:hover &__dropdown-content {
     display: block;
   }
+
+  &.dark {
+    background: darkslategrey;
+    .sidebar__button {
+      @include bar__element--theme--dark();
+
+      &:hover {
+        @include bar__element--hover_theme--dark();
+      }
+
+      &--hover {
+        @include bar__element--hover_theme--dark();
+      }
+    }
+
+    .sidebar__dropdown-content {
+      background: darkslategrey;
+    }
+
+    .sidebar__dropdown-link {
+      @include bar__element--theme--dark();
+
+      &:hover {
+        @include bar__element--hover_theme--dark();
+      }
+
+      &--active {
+        color: rgb(7, 236, 7);
+        background: rgb(67, 119, 119);
+        transition: 0.4s;
+      }
+    }
+  }
 }
 
 .page {
@@ -208,7 +275,14 @@
     text-align: right;
     min-height: 5vh;
     opacity: 0.4;
+    &.dark {
+      color:white;
+    }
   }
+  &.dark {
+    color:white;
+  }
+  
 }
 
 .footer {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 function Article(props) {
@@ -15,6 +16,7 @@ function Article(props) {
   });
   const params = useParams();
   const errorMessage = "Please check the connection to the api, in the folder \"json-mock-api\" please enter the command \"json-server --watch src/db.json\" - and then please refresh the page";
+  const modeValue = useSelector(state => state.modeSwitch.mode);
 
   function handleFetchArticle() {
     if (params && params.articleId) {
@@ -40,14 +42,14 @@ function Article(props) {
 
 
   if (error) {
-    return <div className="page">{errorMessage}</div>;
+    return <div className={"page" + (modeValue ? " dark" : "")}>{errorMessage}</div>;
   } else if (!isDataLoaded) {
-    return <div className="page">Loading...</div>;
+    return <div className={"page" + (modeValue ? " dark" : "")}>Loading...</div>;
   } else {
     return (
       <>
-        <div className={"article"} dangerouslySetInnerHTML={{ __html: data.html }} />
-        <div className="article__footer">
+        <div className={"article"+ (modeValue ? " dark" : "")} dangerouslySetInnerHTML={{ __html: data.html }} />
+        <div className={"article__footer"+ (modeValue ? " dark" : "")}>
           <div className="article__footer_title">
             Title: {data.title}
           </div>

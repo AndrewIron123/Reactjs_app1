@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const modeSwitchSlice = createSlice({
     name: 'modeSwitch',
     initialState: {
-        lightMode: true
+        mode: false
     },
     reducers: {
         changeMode: state => {
-            state.lightMode = !state.lightMode
+            state.mode = !state.mode
         }
     }
 })

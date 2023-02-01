@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 function Sidebar() {
   const [isCategoriesLoaded, setIsCategoriesLoaded] = useState(false);
   const [categoriesError, setCategoriesError] = useState(null);
@@ -13,6 +15,8 @@ function Sidebar() {
   const articleRefs = useRef({});
   const categoryRefs = useRef({});
   const location = useLocation();
+
+  const modeValue = useSelector(state => state.modeSwitch.mode);
 
   function handleFetchCategories() {
     fetch(process.env.REACT_APP_API_URL_CATEGORIES)
@@ -78,19 +82,19 @@ function Sidebar() {
 
   if (categoriesError || articlesError) {
     return (
-      <span className="sidebar">
+      <span className={"sidebar" + (modeValue ? " dark" : "")}>
         <div>{errorMessage}</div>
       </span>
     );
   } else if (!isCategoriesLoaded || !isCategoriesLoaded) {
     return (
-      <span className="sidebar">
+      <span className={"sidebar" + (modeValue ? " dark" : "")}>
         <div>Loading...</div>
       </span>
     );
   } else {
     return (
-      <span className="sidebar">
+      <span className={"sidebar" + (modeValue ? " dark" : "")}>
         {
           categories.map((categoryElement) => {
             return (
