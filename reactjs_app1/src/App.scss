@@ -24,6 +24,32 @@
   transition: 0.4s;
 }
 
+@mixin button--theme() {
+  color: dimgrey;
+  background: lightgray;
+}
+
+
+
+@mixin button--hover_theme() {
+  color: white;
+  background: dimgrey;
+  transition: 0.4s;
+}
+
+@mixin button--theme--dark() {
+  color: white;
+  background: darkslategrey;
+}
+
+
+
+@mixin button--hover_theme--dark() {
+  color: white;
+  background: rgb(67, 119, 119);
+  transition: 0.4s;
+}
+
 #root {
   background-image: linear-gradient(to bottom right, white, gray);
   &.dark {
@@ -298,6 +324,7 @@
   &__form {
     label {
       display: block;
+      text-align: left;
     }
 
     textarea {
@@ -306,21 +333,65 @@
     }
 
     &_fn_input {
-      margin-left: 10px;
+      border: 0;
+      padding: 5px 3px 5px 3px;
+      margin: 5px 0 15px 0;
+      width: calc(100% - 6px);
     }
 
     &_ln_input {
-      margin-left: 12px;
+      border: 0;
+      padding: 5px 3px 5px 3px;
+      margin: 5px 0 15px 0;
+      width: calc(100% - 6px);
     }
 
     &_em_input {
-      margin-left: 39px;
+      border: 0;
+      padding: 5px 3px 5px 3px;
+      margin: 5px 0 15px 0;
+      width: calc(100% - 6px);
+    }
+
+    &_me_input {
+      border: 0;
+      padding: 5px 3px 5px 3px;
+      margin: 5px 0 15px 0;
+      width: calc(100% - 6px);
     }
 
     &_date_input {
-      margin-left: 10px;
+      border: 0;
+      padding: 5px 3px 5px 3px;
+      margin: 5px 0 30px 0;
+      width: calc(100% - 6px);
     }
-
+    &_submit_button {
+      border: none;
+      width: 100%;
+      padding: 10px 12px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      color: dimgrey;
+      background: #80808070;
+      &:hover {
+        @include button--hover_theme();
+      }
+    }
   }
+  &.dark {
+    .calendarpage__form {
+      color: white;
+      &_submit_button {
+        font-size: 16px;
+        @include button--theme--dark();
+        &:hover {
+          @include button--hover_theme--dark();
+        }
+      }
+    }
+  }
+
 
 }

@@ -57,7 +57,7 @@ class CalendarPage extends React.Component {
                         Proposed meeting date:
                         <input className="calendarpage__form_date_input" type="date" name="date" value={this.state.date} onChange={this.handleChange} />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <button type="submit" className="calendarpage__form_submit_button">Send</button>
                 </form>
             </span>
         );
