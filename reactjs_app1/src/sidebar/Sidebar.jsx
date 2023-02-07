@@ -18,6 +18,8 @@ function Sidebar() {
 
   const modeValue = useSelector(state => state.modeSwitch.mode);
 
+  const loaders = [<div className="loader" />, <div className="loader-reverse" />];
+
   function handleFetchCategories() {
     fetch(process.env.REACT_APP_API_URL_CATEGORIES)
       .then(res => res.json())
@@ -45,7 +47,7 @@ function Sidebar() {
         (error) => {
           setIsArticlesLoaded(true);
           setArticlesError(error);
-          alert(`Error - FetchArticles - ${errorMessage}`);
+          // alert(`Error - FetchArticles - ${errorMessage}`);
         }
       )
   }
@@ -82,14 +84,17 @@ function Sidebar() {
 
   if (categoriesError || articlesError) {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "")}>
-        <div>{errorMessage}</div>
-      </span>
+      <span className={"sidebar" + (modeValue ? " dark" : "")} />
     );
-  } else if (!isCategoriesLoaded || !isCategoriesLoaded) {
+  } else if (!isCategoriesLoaded || !isArticlesLoaded) {
+    const loaders = ["loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse"];
     return (
       <span className={"sidebar" + (modeValue ? " dark" : "")}>
-        <div>Loading...</div>
+        <div className="sidebar__element loader__container">
+          {
+            loaders.map((item, index) => { return <div key={index} className={item} /> })
+          }
+        </div>
       </span>
     );
   } else {
@@ -100,7 +105,7 @@ function Sidebar() {
             return (
               <div key={categoryElement.id} className="sidebar__element">
                 <div className="sidebar__button" ref={(el) => categoryRefs.current[categoryElement.id] = el}>{categoryElement.name}</div>
-                <div className="sidebar__dropdown-content" onMouseEnter={()=>handleArticleDropDownOnMouseEnter(categoryElement.id)} onMouseLeave={()=> handleArticleDropDownOnMouseLeave(categoryElement.id)}>
+                <div className="sidebar__dropdown-content" onMouseEnter={() => handleArticleDropDownOnMouseEnter(categoryElement.id)} onMouseLeave={() => handleArticleDropDownOnMouseLeave(categoryElement.id)}>
                   {articles.map((articlesElement) => {
                     if (categoryElement.id === articlesElement.categoryId) {
                       return (

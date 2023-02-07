@@ -184,6 +184,18 @@
 
 }
 
+@keyframes left-to-right {
+  0% {transform: translateX(0px) rotate(0);}
+  50% {transform: translateX(181px) rotate(180deg);}
+  100% {transform: translateX(0px) rotate(0);}
+}
+
+@keyframes right-to-left {
+  0% {transform: translateX(181px) rotate(0);}
+  50% {transform: translateX(0px) rotate(180deg);}
+  100% {transform: translateX(181px) rotate(0);}
+}
+
 .sidebar {
   padding: 0;
   position: fixed;
@@ -195,6 +207,28 @@
   &__element {
     position: relative;
     display: block;
+    &.loader__container{
+      width: 100%;
+      
+    .loader{
+      width: 5px;
+      height: 5px;
+      border: 2px solid gray;
+      border-radius: 50%;
+      animation-name: left-to-right;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+    }
+    .loader-reverse{
+      width: 5px;
+      height: 5px;
+      border: 2px solid gray;
+      border-radius: 50%;
+      animation-name: right-to-left;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+    }
+  }
   }
 
   &__button {
@@ -373,10 +407,16 @@
       text-align: center;
       text-decoration: none;
       font-size: 16px;
-      color: dimgrey;
-      background: #80808070;
+      color: black;
+      background: gray;
       &:hover {
         @include button--hover_theme();
+      }
+      &:disabled {
+        cursor: not-allowed;
+        color: dimgrey;
+        background: #80808070;
+        transition: 5s;
       }
     }
   }
@@ -388,6 +428,11 @@
         @include button--theme--dark();
         &:hover {
           @include button--hover_theme--dark();
+        }
+        &:disabled {
+          cursor: not-allowed;
+          background: #80808070;
+          transition: 5s;
         }
       }
     }

@@ -6,11 +6,11 @@ import modeSwitchReducer from '../features/modeSwitch/modeSwitchSlice';
 function loadDataFromStorage() {
   try {
     const data = localStorage.getItem("modeSwitch");
-    if (data){
-     return JSON.parse(data);
+    if (data) {
+      return JSON.parse(data);
     }
   } catch (e) {
-    console.log(`$Caught error when trying to load data from storage: ${e}`);
+    console.log(`Caught error when trying to load data from storage: ${e}`);
   }
 }
 
@@ -20,7 +20,7 @@ function saveDataToStorage(data) {
     const dataAsString = JSON.stringify(data);
     localStorage.setItem("modeSwitch", dataAsString);
   } catch (e) {
-    console.log(`$Caught error when trying to add data to storage: ${e}`);
+    console.log(`Caught error when trying to add data to storage: ${e}`);
   }
 }
 
@@ -31,5 +31,5 @@ const store = configureStore({
   }
 }, loadDataFromStorage());
 
-store.subscribe(()=>saveDataToStorage(store.getState()));
+store.subscribe(() => saveDataToStorage(store.getState()));
 export default store;
