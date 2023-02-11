@@ -81,18 +81,31 @@ function Sidebar() {
     };
   });
 
+  function handleLoaders(number) {
+    let loadersArr = [];
+
+    for (let z = 0; z < number; z++) {
+      if (z % 2 == 0) {
+        loadersArr.push(<div key={z} className="loader"></div>);
+      } else {
+        loadersArr.push(<div key={z} className="loader-reverse"></div>);
+      }
+    }
+
+    return loadersArr;
+  }
+
 
   if (categoriesError || articlesError) {
     return (
       <span className={"sidebar" + (modeValue ? " dark" : "")} />
     );
   } else if (!isCategoriesLoaded || !isArticlesLoaded) {
-    const loaders = ["loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse", "loader", "loader-reverse"];
     return (
       <span className={"sidebar" + (modeValue ? " dark" : "")}>
         <div className="sidebar__element loader__container">
           {
-            loaders.map((item, index) => { return <div key={index} className={item} /> })
+            handleLoaders(60)
           }
         </div>
       </span>
