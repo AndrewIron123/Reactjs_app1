@@ -2,12 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ModeSwitch from '../features/modeSwitch/ModeSwitch';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import {FcMenu} from "react-icons/fc";
 
-function Navbar() {
+function Navbar(props) {
   const location = useLocation();
   const homeBtn = useRef(null);
   const calendarBtn = useRef(null);
-  const modeValue = useSelector(state => state.modeSwitch.mode)
+  const modeValue = useSelector(state => state.modeSwitch.mode);
+  const [mobileMenuExpended, setMobileMenuExpended] = useState(false);
+
 
   function handleClearActiveBtn() {
     homeBtn.current.classList.remove('navbar__link--active');
@@ -30,6 +34,10 @@ function Navbar() {
     }
   }
 
+  function handleExpendMobileMenu() {
+    setMobileMenuExpended(!mobileMenuExpended);
+  }
+
   useEffect(() => {
     // Marking and unmarking an Navbar buttons depending on the url
     handleActiveBtn();
@@ -44,13 +52,26 @@ function Navbar() {
     }
   }, [modeValue]);
 
-  
+  console.log(mobileMenuExpended);
   return (
-    <div className={"navbar" + (modeValue ? " dark" : "")}>
-      <Link to="/" ref={homeBtn} className="navbar__link">Home</Link>
-      <Link to="/calendar" ref={calendarBtn} className="navbar__link">Make an appointment</Link>
+    <div className={"navbar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`+ (mobileMenuExpended ? " responsive" : "")}>
+      <div className="row">
+      <div className="icon" onClick={()=>handleExpendMobileMenu()}>
+          <FcMenu />
+      </div>
+      <Link to="/" ref={homeBtn} className="navbar__link col-12 col-s-12 col-m-2 col-l-3 col-xl-3 ">Home</Link>
+      <Link to="/calendar" ref={calendarBtn} className="navbar__link col-12 col-s-12 col-m-5 col-l-3 col-xl-3">Make an appointment</Link>
       <ModeSwitch />
+      </div>
     </div>
   );
+}
+
+Navbar.propTypes = {
+  colClasses: PropTypes.string
+}
+
+Navbar.defaultProps = {
+  colClasses: ""
 }
 export default Navbar;

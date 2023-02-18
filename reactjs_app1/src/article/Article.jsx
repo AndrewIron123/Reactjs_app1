@@ -42,9 +42,9 @@ function Article(props) {
 
 
   if (error) {
-    return <div className={"page" + (modeValue ? " dark" : "")}>{errorMessage}</div>;
+    return <div className={"page" + (modeValue ? " dark" : "") + " row"}>{errorMessage}</div>;
   } else if (!isDataLoaded) {
-    return <div className={"page" + (modeValue ? " dark" : "")}>Loading...</div>;
+    return <div className={"page" + (modeValue ? " dark" : "") + " row"}>Loading...</div>;
   } else {
     return (
       <>

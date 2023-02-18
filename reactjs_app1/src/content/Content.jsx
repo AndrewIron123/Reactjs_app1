@@ -1,11 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
-const Content = ({ children }) => {
+const Content = (props) => {
   return (
-  <>
-          {children}
-  </>
+    <div className={props.colClasses}>
+      {props.children}
+    </div>
   );
 };
+
+Content.propTypes = {
+  colClasses: PropTypes.string
+}
+
+Content.defaultProps = {
+  colClasses: ""
+}
+
 export default Content;

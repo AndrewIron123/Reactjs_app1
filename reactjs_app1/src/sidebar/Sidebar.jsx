@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
-function Sidebar() {
+function Sidebar(props) {
   const [isCategoriesLoaded, setIsCategoriesLoaded] = useState(false);
   const [categoriesError, setCategoriesError] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -98,21 +99,21 @@ function Sidebar() {
 
   if (categoriesError || articlesError) {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "")} />
+      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`} />
     );
   } else if (!isCategoriesLoaded || !isArticlesLoaded) {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "")}>
+      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`}>
         <div className="sidebar__element loader__container">
           {
-            handleLoaders(60)
+            handleLoaders(240)
           }
         </div>
       </span>
     );
   } else {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "")}>
+      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`}>
         {
           categories.map((categoryElement) => {
             return (
@@ -136,6 +137,14 @@ function Sidebar() {
       </span>
     );
   }
+}
+
+Sidebar.propTypes = {
+  colClasses: PropTypes.string
+}
+
+Sidebar.defaultProps = {
+  colClasses: ""
 }
 
 export default Sidebar;
