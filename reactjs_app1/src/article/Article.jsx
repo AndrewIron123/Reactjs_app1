@@ -48,8 +48,8 @@ function Article(props) {
   } else {
     return (
       <>
-        <div className={"article"+ (modeValue ? " dark" : "")} dangerouslySetInnerHTML={{ __html: data.html }} />
-        <div className={"article__footer"+ (modeValue ? " dark" : "")}>
+        <div className={"article" + (modeValue ? " dark" : "")} dangerouslySetInnerHTML={{ __html: data.html }} />
+        <div className={"article__footer" + (modeValue ? " dark" : "")}>
           <div className="article__footer_title">
             Title: {data.title}
           </div>
