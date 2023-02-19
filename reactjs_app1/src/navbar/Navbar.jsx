@@ -10,7 +10,7 @@ function Navbar(props) {
   const homeBtn = useRef(null);
   const calendarBtn = useRef(null);
   const modeValue = useSelector(state => state.modeSwitch.mode);
-  const [mobileMenuExpended, setMobileMenuExpended] = useState(false);
+  const {mobileMenuExpended} = props;
 
 
   function handleClearActiveBtn() {
@@ -34,9 +34,6 @@ function Navbar(props) {
     }
   }
 
-  function handleExpendMobileMenu() {
-    setMobileMenuExpended(!mobileMenuExpended);
-  }
 
   useEffect(() => {
     // Marking and unmarking an Navbar buttons depending on the url
@@ -52,13 +49,11 @@ function Navbar(props) {
     }
   }, [modeValue]);
 
-  console.log(mobileMenuExpended);
+  
+  console.log(props);
   return (
     <div className={"navbar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`+ (mobileMenuExpended ? " responsive" : "")}>
       <div className="row">
-      <div className="icon" onClick={()=>handleExpendMobileMenu()}>
-          <FcMenu />
-      </div>
       <Link to="/" ref={homeBtn} className="navbar__link col-12 col-s-12 col-m-2 col-l-3 col-xl-3 ">Home</Link>
       <Link to="/calendar" ref={calendarBtn} className="navbar__link col-12 col-s-12 col-m-5 col-l-3 col-xl-3">Make an appointment</Link>
       <ModeSwitch />
@@ -68,10 +63,12 @@ function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  colClasses: PropTypes.string
+  colClasses: PropTypes.string,
+  mobileMenuExpended: PropTypes.bool
 }
 
 Navbar.defaultProps = {
-  colClasses: ""
+  colClasses: "",
+  mobileMenuExpended: false
 }
 export default Navbar;

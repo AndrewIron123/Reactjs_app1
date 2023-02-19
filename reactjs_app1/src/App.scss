@@ -490,12 +490,26 @@
 
 
 
+
 /* Extra small - phones */
 [class*="col-"] {
   width: 100%;
 }
 
 @media only screen and (min-width: 1px) and (max-width: 767px) {
+  .mobile__navbar {
+    width: 100%;
+    position: fixed;
+    transition: 0.5s;
+  }
+  .mobile__navbar.responsive {
+    height: 100%;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+    overflow-x: hidden;
+    transition: 0.5s;
+
+  }
   .page {
     margin: 0;
     padding: 0 5%;
@@ -509,11 +523,19 @@
   .navbar.responsive {
     .mode-switch {
       display:table;
-    
+      float:unset;
+      margin:auto;
     }
     .navbar__link {
       display: block;
     }
+  }
+  .sidebar.responsive {
+    .sidebar__element {
+      display: inline-block;
+
+    }
+
   }
   .sidebar {
     display: block;
@@ -521,7 +543,7 @@
     position: unset;
     text-align: center;
     .sidebar__element {
-      display: inline-block;
+      display: none;
       .sidebar__dropdown-content {
         width: 100%;
         left: auto;
@@ -581,7 +603,7 @@
   .sidebar {
     position:fixed;
   }
-  .icon {
+  .mobile__iconbar {
     display: none;
   }
   .page {

@@ -21,6 +21,8 @@ function Sidebar(props) {
 
   const loaders = [<div className="loader" />, <div className="loader-reverse" />];
 
+  const {mobileMenuExpended} = props;
+
   function handleFetchCategories() {
     fetch(process.env.REACT_APP_API_URL_CATEGORIES)
       .then(res => res.json())
@@ -99,11 +101,11 @@ function Sidebar(props) {
 
   if (categoriesError || articlesError) {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`} />
+      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`+ (mobileMenuExpended ? " responsive" : "")} />
     );
   } else if (!isCategoriesLoaded || !isArticlesLoaded) {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`}>
+      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`+ (mobileMenuExpended ? " responsive" : "")}>
         <div className="sidebar__element loader__container">
           {
             handleLoaders(240)
@@ -113,7 +115,7 @@ function Sidebar(props) {
     );
   } else {
     return (
-      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`}>
+      <span className={"sidebar" + (modeValue ? " dark" : "") + ` ${props.colClasses}`+ (mobileMenuExpended ? " responsive" : "")}>
         {
           categories.map((categoryElement) => {
             return (
@@ -140,11 +142,13 @@ function Sidebar(props) {
 }
 
 Sidebar.propTypes = {
-  colClasses: PropTypes.string
+  colClasses: PropTypes.string,
+  mobileMenuExpended: PropTypes.bool
 }
 
 Sidebar.defaultProps = {
-  colClasses: ""
+  colClasses: "",
+  mobileMenuExpended: false
 }
 
 export default Sidebar;
