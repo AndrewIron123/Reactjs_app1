@@ -3,6 +3,9 @@
 I created this project to explore my programming knowledge.
 
 ## How to run my application?
+
+-Install nodejs
+
 1. In bash in "json-mock-api" folder please run the following commands:
 
     npm install
